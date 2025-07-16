@@ -1,0 +1,58 @@
+using System;
+
+public class ElectricityBill
+{
+    public static void Main()
+    {
+        int customerID, units;
+        string customerName;
+        double chargePerUnit, amount, surcharge = 0, netAmount;
+
+        Console.Write("Input Customer ID :");
+        customerID = Convert.ToInt16(Console.ReadLine());
+
+        Console.Write("Input the name of the customer :");
+        customerName = Console.ReadLine();
+
+        Console.Write("Input the unit consumed by the customer : ");
+        units = Convert.ToInt16(Console.ReadLine());
+
+        if (units < 200)
+        {
+            chargePerUnit = 1.20;
+        }
+        else if (units >= 200 && units < 400)
+        {
+            chargePerUnit = 1.50;
+        }
+        else if (units >= 400 && units < 600)
+        {
+            chargePerUnit = 1.80;
+        }
+        else
+        {
+            chargePerUnit = 2.00;
+        }
+
+        amount = units * chargePerUnit;
+
+        if (amount > 400)
+        {
+            surcharge = amount * 0.15;
+        }
+
+        netAmount = amount + surcharge;
+
+        if (netAmount < 100)
+        {
+            netAmount = 100;
+        }
+
+        Console.WriteLine("\nCustomer IDNO :{0}", customerID);
+        Console.WriteLine("Customer Name :{0}", customerName);
+        Console.WriteLine("Unit Consumed :{0}", units);
+        Console.WriteLine("Amount Charges @Rs. {0} per unit : {1}", chargePerUnit, amount.ToString("0.00"));
+        Console.WriteLine("Surchage Amount : {0}", surcharge.ToString("0.00"));
+        Console.WriteLine("Net Amount Paid By the Customer : {0}", netAmount.ToString("0.00"));
+    }
+}
