@@ -1,0 +1,91 @@
+using System;
+
+public class CombinedProgram
+{
+    public static void Main(string[] args)
+    {
+        int choice;
+
+        Console.WriteLine("Menu:");
+        Console.WriteLine("1. Sum/Difference/Product");
+        Console.WriteLine("2. Print numbers from 100 to 5 (step -3)");
+        Console.WriteLine("3. Print even numbers up to a limit");
+        Console.WriteLine("4. Print odd numbers up to a limit");
+        Console.WriteLine("Enter your choice:");
+        choice = Convert.ToInt16(Console.ReadLine());
+
+        switch (choice)
+        {
+            case 1:
+                int ch, a, b;
+                Console.WriteLine("Enter 1 for sum, 2 for difference, other for product:");
+                ch = Convert.ToInt16(Console.ReadLine());
+
+                Console.WriteLine("Enter first number:");
+                a = Convert.ToInt16(Console.ReadLine());
+
+                Console.WriteLine("Enter second number:");
+                b = Convert.ToInt16(Console.ReadLine());
+
+                switch (ch)
+                {
+                    case 1:
+                        Console.WriteLine("Sum: " + (a + b));
+                        break;
+                    case 2:
+                        Console.WriteLine("Difference: " + (a - b));
+                        break;
+                    default:
+                        Console.WriteLine("Product: " + (a * b));
+                        break;
+                }
+                break;
+
+            case 2:
+                for (int i = 100; i >= 5; i -= 3)
+                {
+                    Console.WriteLine(i);
+                }
+                break;
+
+            case 3:
+                int limitEven;
+                Console.WriteLine("Enter the limit for even numbers:");
+                limitEven = Convert.ToInt16(Console.ReadLine());
+
+                for (int i = 1; i < limitEven; i++)
+                {
+                    switch (i % 2)
+                    {
+                        case 0:
+                            Console.WriteLine(i);
+                            break;
+                    }
+                }
+                break;
+
+            case 4:
+                int limitOdd;
+                Console.WriteLine("Enter the limit for odd numbers:");
+                limitOdd = Convert.ToInt16(Console.ReadLine());
+
+                for (int i = 1; i < limitOdd; i++)
+                {
+                    switch (i % 2)
+                    {
+                        case 0:
+                            // Even — do nothing
+                            break;
+                        default:
+                            Console.WriteLine(i);
+                            break;
+                    }
+                }
+                break;
+
+            default:
+                Console.WriteLine("Invalid choice");
+                break;
+        }
+    }
+}
